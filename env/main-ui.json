@@ -134,7 +134,7 @@
                             "visible": true
                         },
                         {
-                            "name": "locations",
+                            "name": "workspaces",
                             "type": "Microsoft.Solutions.ArmApiControl",
                             "request": {
                                 "method": "GET",
@@ -144,12 +144,12 @@
                         {
                             "name": "location",
                             "type": "Microsoft.Common.DropDown",
-                            "label": "Deployment location",
+                            "label": "Deployment workspace",
                             "defaultValue": "[steps('basics').resourceScope.location.displayName]",
-                            "toolTip": "Location for the resources. Defaults to matching the resource group.",
+                            "toolTip": "workspace for the resources. Defaults to matching the resource group.",
                             "filter": true,
                             "constraints": {
-                                "allowedValues": "[map(steps('app').locations.value, (item) => parse(concat('{\"label\":\"', item.properties.displayName, '\",\"value\":\"', item.name, '\"}')))]",
+                                "allowedValues": "[map(steps('app').workspaces.value, (item) => parse(concat('{\"label\":\"', item.properties.displayName, '\",\"value\":\"', item.name, '\"}')))]",
                                 "required": true
                             },
                             "visible": true
