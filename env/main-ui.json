@@ -138,7 +138,7 @@
                             "type": "Microsoft.Solutions.ArmApiControl",
                             "request": {
                                 "method": "GET",
-                                "path":"[concat(steps('basics').resourceScope.subscription.id, '/resourceGroups/',steps('basics').resourceScope.resourceGroup.id, '/providers/Microsoft.MachineLearningServices/workspaces?api-version=2021-03-01')]"
+                                "path":"[concat(steps('basics').resourceScope.subscription.id, '/resourceGroups/',steps('basics').resourceScope.resourceGroup.id, '/providers/Microsoft.MachineLearningServices/workspaces?api-version=2022-05-01')]"
                            }
                         },
                         {
