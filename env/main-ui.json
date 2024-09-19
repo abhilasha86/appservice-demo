@@ -36,15 +36,15 @@
                 },
                 {
                     "name": "app",
-                    "label": "Application",
-                    "description": "Configure the environment that will be used for deploying this application to Azure. The App Service is configured to use run-from-package deployments. More details are available at https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package.",
+                    "label": "section1",
+                    "description": "Configure",
                     "elements": [
                         {
-                            "name": "webAppName",
+                            "name": "input1",
                             "type": "Microsoft.Common.TextBox",
-                            "label": "Web App Name",
+                            "label": "Name",
                             "defaultValue": "[uniqueString(resourceGroup().id)]",
-                            "toolTip": "The name of your web application.",
+                            "toolTip": "name",
                             "constraints": {
                                 "required": false,
                                 "regex": "",
@@ -61,7 +61,7 @@
                            }
                         },
                         {
-                            "name": "location",
+                            "name": "workspace",
                             "type": "Microsoft.Common.DropDown",
                             "label": "Deployment workspace",
                             "defaultValue": "",
@@ -93,8 +93,8 @@
         },
         "outputs": {
             "parameters": {
-                "webAppName": "[steps('app').webAppName]",
-                "location": "[steps('app').location]"
+                "input1": "[steps('app').input1]",
+                "workspace": "[steps('app').workspace]"
             },
             "kind": "ResourceGroup",
             "location": "[steps('basics').resourceScope.location.name]",
