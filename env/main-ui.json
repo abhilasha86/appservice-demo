@@ -153,27 +153,6 @@
                                 "required": true
                             },
                             "visible": true
-                        },
-                        {
-                            "name": "isLinuxDeploy",
-                            "type": "Microsoft.Common.OptionsGroup",
-                            "label": "Deployment environment",
-                            "defaultValue": "Linux",
-                            "toolTip": "The target deployment environment",
-                            "constraints": {
-                                "required": true,
-                                "allowedValues": [
-                                    {
-                                        "label": "Linux",
-                                        "value": true
-                                    },
-                                    {
-                                        "label": "Windows",
-                                        "value": false
-                                    }
-                                ]
-                            },
-                            "visible": true
                         }
                     ]
                 },
@@ -197,8 +176,7 @@
             "parameters": {
                 "webAppName": "[steps('app').webAppName]",
                 "sku": "[steps('app').sku]",
-                "location": "[steps('app').location]",
-                "isLinuxDeploy": "[steps('app').isLinuxDeploy]"
+                "location": "[steps('app').location]"
             },
             "kind": "ResourceGroup",
             "location": "[steps('basics').resourceScope.location.name]",
