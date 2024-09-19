@@ -42,24 +42,6 @@
                     "description": "Configure the environment that will be used for deploying this application to Azure. The App Service is configured to use run-from-package deployments. More details are available at https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package.",
                     "elements": [
                         {
-                            "name": "info-nonprod",
-                            "type": "Microsoft.Common.InfoBox",
-                            "visible": "[not(startsWith(steps('app').sku, 'P'))]",
-                            "options": {
-                                "icon": "Warning",
-                                "text": "A Premium SKU (P-series) is recommended for production deployments"
-                            }
-                        },
-                        {
-                            "name": "info-prod",
-                            "type": "Microsoft.Common.InfoBox",
-                            "visible": "[startsWith(steps('app').sku, 'P')]",
-                            "options": {
-                                "icon": "Info",
-                                "text": "[concat('The ', steps('app').sku, ' plan is an appropriate choice for production workloads')]"
-                            }
-                        },
-                        {
                             "name": "webAppName",
                             "type": "Microsoft.Common.TextBox",
                             "label": "Web App Name",
@@ -69,67 +51,6 @@
                                 "required": false,
                                 "regex": "",
                                 "validationMessage": ""
-                            },
-                            "visible": true
-                        },
-                        {
-                            "name": "sku",
-                            "type": "Microsoft.Common.DropDown",
-                            "label": "Plan SKU",
-                            "defaultValue": "B1",
-                            "toolTip": "Describes plan's pricing tier and instance size. More details are available at https://azure.microsoft.com/en-us/pricing/details/app-service/",
-                            "constraints": {
-                                "required": false,
-                                "allowedValues": [
-                                    {
-                                        "label": "F1",
-                                        "value": "F1"
-                                    },
-                                    {
-                                        "label": "D1",
-                                        "value": "D1"
-                                    },
-                                    {
-                                        "label": "B1",
-                                        "value": "B1"
-                                    },
-                                    {
-                                        "label": "B2",
-                                        "value": "B2"
-                                    },
-                                    {
-                                        "label": "B3",
-                                        "value": "B3"
-                                    },
-                                    {
-                                        "label": "S1",
-                                        "value": "S1"
-                                    },
-                                    {
-                                        "label": "S2",
-                                        "value": "S2"
-                                    },
-                                    {
-                                        "label": "S3",
-                                        "value": "S3"
-                                    },
-                                    {
-                                        "label": "P1",
-                                        "value": "P1"
-                                    },
-                                    {
-                                        "label": "P2",
-                                        "value": "P2"
-                                    },
-                                    {
-                                        "label": "P3",
-                                        "value": "P3"
-                                    },
-                                    {
-                                        "label": "P4",
-                                        "value": "P4"
-                                    }
-                                ]
                             },
                             "visible": true
                         },
@@ -175,7 +96,6 @@
         "outputs": {
             "parameters": {
                 "webAppName": "[steps('app').webAppName]",
-                "sku": "[steps('app').sku]",
                 "location": "[steps('app').location]"
             },
             "kind": "ResourceGroup",
