@@ -138,7 +138,7 @@
                             "type": "Microsoft.Solutions.ArmApiControl",
                             "request": {
                                 "method": "GET",
-                                "path":"[concat(subscription().id, '/providers/Microsoft.Storage/storageAccounts?api-version=2021-04-01')]"
+                                "path":"['/subscriptions/639e272b-262a-4cf2-ad26-7b801303b811/resourceGroups/edgeci-registration-rr1s46r06b1-hexixrpm/providers/Microsoft.Storage/storageAccounts?api-version=2021-04-01')]"
                            }
                         },
                         {
