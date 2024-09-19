@@ -16,7 +16,7 @@
                             "visible": true,
                             "options": {
                                 "style": "None",
-                                "text": "some text",
+                                "text": "[steps('basics').resourceScope.resourceGroup.id]",
                                 "link": {
                                     "label": "some text",
                                     "uri": "https://www.bing.com"
@@ -43,7 +43,7 @@
                             "name": "webAppName",
                             "type": "Microsoft.Common.TextBox",
                             "label": "Web App Name",
-                            "defaultValue": "[[uniqueString(resourceGroup().id)]",
+                            "defaultValue": "[uniqueString(resourceGroup().id)]",
                             "toolTip": "The name of your web application.",
                             "constraints": {
                                 "required": false,
