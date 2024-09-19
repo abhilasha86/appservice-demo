@@ -1,13 +1,6 @@
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
-  "metadata": {
-    "_generator": {
-      "name": "bicep",
-      "version": "0.14.46.61228",
-      "templateHash": "12893331068461837199"
-    }
-  },
   "parameters": {
     "input1": {
       "type": "string",
@@ -32,19 +25,15 @@
       }
     }
   },
-  "variables": {
-    "appServicePlanName": "[toLower(format('{0}-plan', parameters('input1')))]",
-    "webSiteName": "[toLower(format('{0}-web', parameters('input1')))]"
-  },
   "resources": [],
   "outputs": {
-    "appServiceName": {
+    "input1": {
       "type": "string",
-      "value": "[variables('webSiteName')]"
+      "value": "input1"
     },
-    "appServiceHost": {
+    "workspace": {
       "type": "string",
-      "value": "[reference(resourceId('Microsoft.Web/sites', variables('webSiteName')), '2022-03-01').defaultHostName]"
+      "value": "workspace"
     }
   }
 }
