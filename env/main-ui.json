@@ -42,7 +42,7 @@
                         {
                             "name": "input1",
                             "type": "Microsoft.Common.TextBox",
-                            "label": "Name",
+                            "label": "Name (Enter value as 'gpu' to make a hidden element visible)",
                             "defaultValue": "[uniqueString(resourceGroup().id)]",
                             "toolTip": "name",
                             "constraints": {
@@ -76,7 +76,7 @@
                            {
                             "name": "subsection",
                             "type": "Microsoft.Common.Section",
-                            "label": "properties",
+                            "label": "Subsection",
                             "visible": true,
                             "elements": [
                                 {
@@ -130,8 +130,7 @@
                             "name": "tagsControl",
                             "type": "Microsoft.Common.TagsByResource",
                             "resources": [
-                                "Microsoft.Web/serverfarms",
-                                "Microsoft.Web/sites"
+                                 "Microsoft.MachineLearningServices/workspaces/onlineEndpoints"
                             ]
                         }
                     ]
