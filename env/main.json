@@ -45,13 +45,6 @@
         "description": "Resource group location"
       }
     },
-    "isLinuxDeploy": {
-      "type": "bool",
-      "defaultValue": false,
-      "metadata": {
-        "description": "Deploy to Linux or Windows"
-      }
-    },
     "tagsByResource": {
       "type": "object",
       "defaultValue": {},
@@ -62,56 +55,9 @@
   },
   "variables": {
     "appServicePlanName": "[toLower(format('{0}-plan', parameters('webAppName')))]",
-    "webSiteName": "[toLower(format('{0}-web', parameters('webAppName')))]",
-    "linuxSiteConfig": "[if(parameters('isLinuxDeploy'), createObject('linuxFxVersion', 'DOTNETCORE|6.0'), createObject())]"
+    "webSiteName": "[toLower(format('{0}-web', parameters('webAppName')))]"
   },
-  "resources": [
-    {
-      "type": "Microsoft.Web/serverfarms",
-      "apiVersion": "2022-03-01",
-      "name": "[variables('appServicePlanName')]",
-      "location": "[parameters('location')]",
-      "properties": {
-        "reserved": "[parameters('isLinuxDeploy')]"
-      },
-      "sku": {
-        "name": "[parameters('sku')]"
-      },
-      "kind": "[if(parameters('isLinuxDeploy'), 'linux', '')]",
-      "tags": "[if(contains(parameters('tagsByResource'), 'Microsoft.Web/serverfarms'), parameters('tagsByResource')['Microsoft.Web/serverfarms'], createObject())]"
-    },
-    {
-      "type": "Microsoft.Web/sites",
-      "apiVersion": "2022-03-01",
-      "name": "[variables('webSiteName')]",
-      "location": "[parameters('location')]",
-      "kind": "app",
-      "tags": "[if(contains(parameters('tagsByResource'), 'Microsoft.Web/sites'), parameters('tagsByResource')['Microsoft.Web/sites'], createObject())]",
-      "identity": {
-        "type": "SystemAssigned"
-      },
-      "properties": {
-        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanName'))]",
-        "clientAffinityEnabled": false,
-        "httpsOnly": true,
-        "siteConfig": "[union(variables('linuxSiteConfig'), createObject('minTlsVersion', '1.2', 'scmMinTlsVersion', '1.2', 'http20Enabled', true(), 'httpLoggingEnabled', false(), 'detailedErrorLoggingEnabled', false(), 'use32BitWorkerProcess', false(), 'webSocketsEnabled', true(), 'alwaysOn', true(), 'ftpsState', 'Disabled'))]"
-      },
-      "dependsOn": [
-        "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanName'))]"
-      ]
-    },
-    {
-      "type": "Microsoft.Web/sites/config",
-      "apiVersion": "2022-03-01",
-      "name": "[format('{0}/{1}', variables('webSiteName'), 'appsettings')]",
-      "properties": {
-        "WEBSITE_RUN_FROM_PACKAGE": "1"
-      },
-      "dependsOn": [
-        "[resourceId('Microsoft.Web/sites', variables('webSiteName'))]"
-      ]
-    }
-  ],
+  "resources": [],
   "outputs": {
     "appServiceName": {
       "type": "string",
