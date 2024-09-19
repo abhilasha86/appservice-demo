@@ -9,19 +9,19 @@
     }
   },
   "parameters": {
-    "webAppName": {
+    "input1": {
       "type": "string",
       "defaultValue": "[uniqueString(resourceGroup().id)]",
       "minLength": 2,
       "metadata": {
-        "description": "Web app name."
+        "description": "name."
       }
     },
-    "location": {
+    "workspace": {
       "type": "string",
-      "defaultValue": "[resourceGroup().location]",
+      "defaultValue": "",
       "metadata": {
-        "description": "Resource group location"
+        "description": "Resource group workspace"
       }
     },
     "tagsByResource": {
@@ -33,8 +33,8 @@
     }
   },
   "variables": {
-    "appServicePlanName": "[toLower(format('{0}-plan', parameters('webAppName')))]",
-    "webSiteName": "[toLower(format('{0}-web', parameters('webAppName')))]"
+    "appServicePlanName": "[toLower(format('{0}-plan', parameters('input1')))]",
+    "webSiteName": "[toLower(format('{0}-web', parameters('input1')))]"
   },
   "resources": [],
   "outputs": {
