@@ -3,12 +3,12 @@
     "view": {
         "kind": "Form",
         "properties": {
-            "title": ".NET App Service Application",
+            "title": "Create a custom ui template",
             "steps": [
                 {
                     "name": "basics",
                     "label": "Basics",
-                    "description": "This template will create an Azure App Service and plan for Linux or Windows. The App Service will be configured to support automated application deployment using ZIP packages.",
+                    "description": "custom",
                     "elements": [
                         {
                             "name": "intro",
@@ -16,10 +16,10 @@
                             "visible": true,
                             "options": {
                                 "style": "None",
-                                "text": "This GUI illustrates how to create a graphical user experience for deploying Azure resources. More details about developing custom templates are available from the related blog post.",
+                                "text": "some text",
                                 "link": {
-                                    "label": "Learn about developing custom GUIs (kenmuse.com)",
-                                    "uri": "https://www.kenmuse.com/blog/custom-azure-guis-for-arm-and-bicep-templates"
+                                    "label": "some text",
+                                    "uri": "https://www.bing.com"
                                 }
                             }
                         },
@@ -28,9 +28,7 @@
                             "type": "Microsoft.Common.ResourceScope",
                             "location": {
                                 "resourceTypes": [
-                                    "microsoft.resources/resourcegroups",
-                                    "microsoft.web/serverfarms",
-                                    "microsoft.web/sites"
+                                    "microsoft.resources/resourcegroups"
                                 ]
                             }
                         }
