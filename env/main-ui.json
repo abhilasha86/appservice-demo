@@ -69,9 +69,56 @@
                             "filter": true,
                             "constraints": {
                                 "allowedValues":"[map(steps('app').workspaces.value, (item) => parse(concat('{\"label\":\"', item.name, '\",\"value\":\"', item.name, '\"}')))]",
-                                "required": true
+                               "required": true
                             },
                             "visible": true
+                        },
+                           {
+                            "name": "subsection",
+                            "type": "Microsoft.Common.Section",
+                            "label": "properties",
+                            "visible": true,
+                            "elements": [
+                                {
+                                    "name": "requestCPU",
+                                    "type": "Microsoft.Common.TextBox",
+                                    "label": "requestCPU",
+                                    "defaultValue": "",
+                                    "toolTip": "",
+                                    "constraints": {
+                                        "required": false,
+                                        "regex": "",
+                                        "validationMessage": ""
+                                    },
+                                    "visible": true
+                                },
+                                                     {
+                                    "name": "requestMemory",
+                                    "type": "Microsoft.Common.TextBox",
+                                    "label": "requestMemory",
+                                    "defaultValue": "",
+                                    "toolTip": "",
+                                    "constraints": {
+                                        "required": false,
+                                        "regex": "",
+                                        "validationMessage": ""
+                                    },
+                                    "visible": true
+                                },
+                                                     {
+                                    "name": "requestGPU",
+                                    "type": "Microsoft.Common.TextBox",
+                                    "label": "requestGPU",
+                                    "defaultValue": "",
+                                    "toolTip": "",
+                                    "constraints": {
+                                        "required": false,
+                                        "regex": "",
+                                        "validationMessage": ""
+                                    },
+                                    "visible":  "[startsWith(steps('app').input1, 'gpu')]"
+                                }
+                            ]
                         }
                     ]
                 },
