@@ -144,7 +144,7 @@
                         {
                             "name": "location",
                             "type": "Microsoft.Common.DropDown",
-                            "label": "Deployment workspaces",
+                            "label": "Deployment workspace",
                             "defaultValue": "",
                             "toolTip": "workspace for the resources. Defaults to matching the resource group.",
                             "filter": true,
